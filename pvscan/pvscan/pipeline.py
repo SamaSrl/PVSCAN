@@ -11,6 +11,7 @@ import io
 import json
 import os
 from concurrent.futures import ThreadPoolExecutor
+import geo
 
 import yaml
 from pathlib import Path
