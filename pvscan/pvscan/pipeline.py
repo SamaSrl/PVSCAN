@@ -13,15 +13,13 @@ import os
 from concurrent.futures import ThreadPoolExecutor
 
 import yaml
-from shapely.geometry import shape
-
 from pathlib import Path
 
 def load_config():
-    # Cerca config.yaml nella cartella principale del progetto o nella stessa cartella
-    path = Path(__file__).parent.parent / "config.yaml"  # oppure .parent a seconda di dove si trova
+    # Cerca config.yaml nella cartella superiore o nella posizione corretta
+    path = Path(__file__).parent.parent / "config.yaml"
     with open(path, encoding="utf-8") as f:
-
+        return yaml.safe_load(f)
 
 def analyze_building(b, cfg):
     s = cfg["search"]
