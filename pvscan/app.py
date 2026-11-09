@@ -4,7 +4,6 @@ import streamlit as st
 from shapely.geometry import shape
 from streamlit_folium import st_folium
 from folium.plugins import Draw
-
 from pvscan import geo, pipeline
 
 st.set_page_config(page_title="pvscan", layout="wide")
