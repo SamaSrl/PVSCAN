@@ -18,9 +18,10 @@ from shapely.geometry import shape
 from . import detect, geo, imagery, owners
 
 
-def load_config(path="config.yaml"):
+def load_config():
+    # Cerca config.yaml nella cartella principale del progetto o nella stessa cartella
+    path = Path(__file__).parent.parent / "config.yaml"  # oppure .parent a seconda di dove si trova
     with open(path, encoding="utf-8") as f:
-        return yaml.safe_load(f)
 
 
 def analyze_building(b, cfg):
