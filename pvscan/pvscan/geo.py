@@ -8,7 +8,7 @@ from shapely.geometry import Polygon, Point, box
 from shapely.ops import transform
 
 UA = {"User-Agent": "pvscan/0.1 (open-source rooftop PV change detection)"}
-OVERPASS = "https://overpass-api.de/api/interpreter"
+OVERPASS = "https://z.overpass-api.de/api/interpreter"
 _to_m = Transformer.from_crs(4326, 3035, always_xy=True).transform
 
 
