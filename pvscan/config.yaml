@@ -1,0 +1,27 @@
+# Immagine "passata": ortofoto AGEA 2012 dal Geoportale Nazionale (PCN, WMS).
+# Verifica nome layer con GetCapabilities se cambia:
+#   <url>&SERVICE=WMS&REQUEST=GetCapabilities
+past_imagery:
+  type: wms
+  url: "http://wms.pcn.minambiente.it/ogc?map=/ms_ogc/WMS_v1.3/raster/ortofoto_colore_12.map"
+  layer: "OI.ORTOIMMAGINI.2012"
+  year: 2012
+
+# Immagine "attuale": Esri World Imagery (uso soggetto ai termini Esri; per
+# uso commerciale intensivo sostituire con ortofoto regionali/AGEA recenti).
+current_imagery:
+  type: arcgis
+  url: "https://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/export"
+
+search:
+  min_roof_area_m2: 700        # sotto questa soglia il tetto non ospita ~70 kWp
+  min_kwp: 70
+  unchanged_ratio: 0.8         # oggi deve avere almeno 80% dei kWp stimati nel passato
+  m2_per_kwp: 7.0              # moduli 2010-2013 (~14-15% efficienza)
+  resolution_m: 0.3            # m/pixel dei ritagli
+  margin_m: 8
+  min_component_m2: 15         # ignora macchie piu' piccole di questa area
+
+owners:
+  google_places_radius_m: 40
+  exclude_types: [lodging, street_address, premise, subpremise]
