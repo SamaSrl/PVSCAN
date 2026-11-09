@@ -46,7 +46,7 @@ def _overpass(query: str, retries: int = 4):
     for attempt in range(retries):
         try:
             r = requests.post(OVERPASS, data={"data": query}, headers=UA, timeout=240)
-            if r.status_code in (429, 504):
+            if r.status_code in (429, 504, 502, 503):
                 time.sleep(10 * (attempt + 1))
                 continue
             r.raise_for_status()
