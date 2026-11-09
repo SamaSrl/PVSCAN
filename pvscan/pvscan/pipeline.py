@@ -15,8 +15,7 @@ from concurrent.futures import ThreadPoolExecutor
 import yaml
 from shapely.geometry import shape
 
-from . import detect, geo, imagery, owners
-
+from pathlib import Path
 
 def load_config():
     # Cerca config.yaml nella cartella principale del progetto o nella stessa cartella
